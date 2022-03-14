@@ -1,4 +1,4 @@
-<footer class="footer text-center d-flex flex-column  py-2 theme-bg-dark">
+<footer class="footer text-center d-flex flex-column mt-auto py-2 theme-bg-dark">
     <div class='d-flex justify-content-center'>
         <a href="/">Privacy Policy</a> <span class='mr-4 ml-4'>|</span>
         <a href="/">Terms and conditions </a> <span class='mr-4 ml-4'>|</span>

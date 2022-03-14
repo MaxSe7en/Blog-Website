@@ -1,21 +1,21 @@
 <?php
-require('config.php')
+require_once('config.php')
 ?>
 <!-- head here -->
 <?php
-require(ROOT_PATH.'/includes/head.php')
+require_once(ROOT_PATH.'/includes/head.php')
 ?>
-<title>My blog post</title>
+<title>My blogs</title>
 </head>
 
 <body>
     <!-- navbar below -->
     <?php
-    require(ROOT_PATH.'/includes/navbar.php')
+    require_once(ROOT_PATH.'/includes/navbar.php')
     ?>
     <!-- header below -->
     <?php
-    require(ROOT_PATH.'/includes/header.php')
+    require_once(ROOT_PATH.'/includes/header.php')
     ?>
     
 
@@ -39,12 +39,12 @@ require(ROOT_PATH.'/includes/head.php')
             <?php foreach($posts as $post) {?>
                 <div class="item mb-5">
                     <div class="media">
-                        <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">
+                        <img class="mr-3 img-fluid imgs-size post-thumb d-none d-md-flex" src="<?php echo BASE_URL . 'application/views/blog/static/images/' . $post['image']; ?>" alt="image">
                         <div class="media-body">
                             <h3 class="title mb-1"><a href="blog-post.html"><?= $post['title'] ?></a></h3>
-                            <div class="meta mb-1"><span class="date">Published 2 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
+                            <div class="meta mb-1"><span class="date">Published 5 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
                             <div class="intro"><?= $post['body'] ?></div>
-                            <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+                            <a class="more-link" href="<?php echo BASE_URL . 'application/views/blog/blogpost'. $post['id']?>.php">Read more &rarr;</a>
                         </div>
                         <!--//media-body-->
                     </div>
@@ -61,11 +61,44 @@ require(ROOT_PATH.'/includes/head.php')
         </section>
 
         <?php
-        require(ROOT_PATH.'/includes/footer.php')
+        require_once(ROOT_PATH.'/includes/footer.php')
         ?>
 
     </div>
-    
+    <?php
+
+//Code written by purpledesign.in Jan 2014
+// function dateDiff($date)
+// {
+//     $mydate= date("Y-m-d H:i:s");
+//     $theDiff="";
+//     echo $mydate;//2014-06-06 21:35:55
+//     $datetime1 = date_create($date);
+//     $datetime2 = date_create($mydate);
+//     $interval = date_diff($datetime1, $datetime2);
+//     //echo $interval->format('%s Seconds %i Minutes %h Hours %d days %m Months %y Year    Ago')."<br>";
+//     $min=$interval->format('%i');
+//     $sec=$interval->format('%s');
+//     $hour=$interval->format('%h');
+//     $mon=$interval->format('%m');
+//     $day=$interval->format('%d');
+//     $year=$interval->format('%y');
+//     if($interval->format('%i%h%d%m%y')=="00000") {
+//         //echo $interval->format('%i%h%d%m%y')."<br>";
+//         return $sec." Seconds";
+//     } else if($interval->format('%h%d%m%y')=="0000"){
+//         return $min." Minutes";
+//     } else if($interval->format('%d%m%y')=="000"){
+//         return $hour." Hours";
+//     } else if($interval->format('%m%y')=="00"){
+//         return $day." Days";
+//     } else if($interval->format('%y')=="0"){
+//         return $mon." Months";
+//     } else{
+//         return $year." Years";
+//     }    
+// }
+?>
 
 
     <!-- JavaScript Bundle with Popper -->

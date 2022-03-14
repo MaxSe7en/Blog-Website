@@ -104,6 +104,10 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/kohana/',
+	'index_file' 	=> Kohana::$environment === Kohana::PRODUCTION,
+	'errors' 		=> Kohana::$environment !== Kohana::PRODUCTION,
+	'profile' 		=> Kohana::$environment !== Kohana::PRODUCTION,
+	'caching' 		=> Kohana::$environment === Kohana::PRODUCTION,
 ));
 
 /**
@@ -146,6 +150,11 @@ Cookie::$salt = 'foobar';
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'blogs',
+		'action'     => 'index',
+	));
+Route::set('blogone', '(<blogone>(/<action>(/<id>)))')
+	->defaults(array(
+		'controller' => 'blogone',
 		'action'     => 'index',
 	));
