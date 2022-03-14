@@ -28,7 +28,6 @@ require_once('/includes/head.php')
                     </div>
 
                     <div class="blog-post-body">
-                        <img class="img-fluid" src="<?php echo BASE_URL . 'application/views/blog/static/images/' . $post['image']; ?>" alt="image">
                         <p><?= ($post['id'] == 1) ? $post['body'] : '' ?> </p>
                     </div>
                 </div>

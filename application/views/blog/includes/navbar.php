@@ -18,7 +18,7 @@
                     <button class="btn btn-outline-warning btn-sm" type="submit">Search</button>
                 </form> -->
             <button type="button" class="btn btn-light mr-2">Log In</button>
-            <button type="button" class="btn btn-outline-primary">Sign Up</button>
+            <button type="button" class="btn btn-outline-primary" value="submit"><a href="addposts"> Create A Blog</a></button>
 
         </div>
     </div>

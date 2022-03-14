@@ -77,7 +77,7 @@ return array
 		'type'       => 'MySQLi',
 		'connection' => array(
 			'hostname'   => 'localhost',
-			'database'   => 'blog_post',
+			'database'   => 'newpost',
 			'username'   => 'root',
 			'password'   => FALSE,
 			'persistent' => FALSE,

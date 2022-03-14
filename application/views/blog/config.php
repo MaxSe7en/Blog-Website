@@ -10,5 +10,5 @@
        // coming soon...
 
 	define ('ROOT_PATH', realpath(dirname(__FILE__)));
-	define('BASE_URL', 'http://localhost/kohana/');
+	define('BASE_URL', 'http://localhost/kohana/blog/');
 ?>
