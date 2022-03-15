@@ -4,7 +4,7 @@ require_once('config.php')
 <?php
 require_once('/includes/head.php')
 ?>
-<title>Create blog</title>
+<title>Create Post</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ require_once('/includes/head.php')
             <h2 for="title">Body</h2><br />
             <textarea rows='10' name="body" id="body" class='form-control bg-dark text-white my-3'></textarea>
             </p>
-            <button class='btn btn-success mt-3 btn-lg'>Create Blog</button>
+            <button class='btn btn-success mt-3 btn-lg'>Create Post</button>
             <a href='<?php echo BASE_URL ?>' class='btn ml-5 btn-secondary mt-3 btn-lg'>Go Home</a>
         </form>
 
@@ -85,7 +85,7 @@ require_once('/includes/head.php')
 
             try {
                 isLoading();
-                const URL = "https://localhost/kohana/api/create_post.php";
+                const URL = "https://dreamerslake.com/kohana/api/create_post.php";
                 const options = {
                     method: "POST",
                     body: JSON.stringify(blogs),

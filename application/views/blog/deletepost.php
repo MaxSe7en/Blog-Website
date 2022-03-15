@@ -4,7 +4,7 @@ require_once('config.php')
 <?php
 require_once('/includes/head.php')
 ?>
-<title>Delete blog</title>
+<title>Delete Post</title>
 </head>
 
 <body>
@@ -45,7 +45,7 @@ require_once('/includes/head.php')
                 <h2 for="title">Body</h2><br />
                 <textarea readonly rows='10' name="body" id="body" value='sdfsfsad' class='form-control text-white bg-dark my-3'><?php echo $post['body'] ?></textarea>
                 </p>
-                <button class='btn btn-danger mt-3 btn-lg'>Delete Blog</button>
+                <button class='btn btn-danger mt-3 btn-lg'>Delete Post</button>
             </form>
         <?php } ?>
         <h2 id='message'></h2>
@@ -85,7 +85,7 @@ require_once('/includes/head.php')
 
             try {
                 isLoading();
-                const URL = `https://localhost/kohana/api/delete_post.php?id=${idValue}`;
+                const URL = `https://dreamerslake.com/kohana/api/delete_post.php?id=${idValue}`;
                 const options = {
                     method: "GET",
                 };

@@ -4,7 +4,7 @@ require_once('config.php')
 <?php
 require_once('/includes/head.php')
 ?>
-<title>Update blog</title>
+<title>Update Post</title>
 </head>
 
 <body>
@@ -45,7 +45,7 @@ require_once('/includes/head.php')
                 <h2 for="title">Body</h2><br />
                 <textarea rows='10' name="body" id="body" value='sdfsfsad' class='form-control  text-white bg-dark my-3'><?php echo $post['body'] ?></textarea>
                 </p>
-                <button class='btn btn-success mt-3 btn-lg'>Update Blog</button>
+                <button class='btn btn-success mt-3 btn-lg'>Update Post</button>
             </form>
         <?php } ?>
         <h2 id='message'></h2>
@@ -96,7 +96,7 @@ require_once('/includes/head.php')
                     id: idValue
                 };
 
-                const URL = "https://localhost/kohana/api/update_post.php";
+                const URL = "https://dreamerslake.com/kohana/api/update_post.php";
                 const options = {
                     method: "POST",
                     body: JSON.stringify(blogs),

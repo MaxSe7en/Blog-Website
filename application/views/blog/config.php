@@ -7,5 +7,5 @@
 
 
 	define ('ROOT_PATH', realpath(dirname(__FILE__)));
-	define('BASE_URL', 'http://localhost/kohana/blog/');
+	define('BASE_URL', 'http://dreamerslake.com/kohana/blog/');
 ?>

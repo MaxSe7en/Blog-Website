@@ -13,7 +13,7 @@
         </li>
       </ul>
       <form class="d-flex">
-      <a class="btn btn-outline-primary" href="<?php echo BASE_URL . 'addposts'?>"> Create A Blog</a>
+      <a class="btn btn-outline-primary" href="<?php echo BASE_URL . 'addposts'?>"> Create A Post</a>
       </form>
     </div>
   </div>
