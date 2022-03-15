@@ -30,9 +30,19 @@
     height: 70px !important;
 }
 .form-control{
-    font-size: 2rem !important;
+    font-size: 1rem !important;
     padding: 1rem;
 }
+.popular{
+    display:block;
+}
+
+@media (max-width: 991.98px){
+.header {
+    position: sticky !important;
+    width: inherit;
+    height: auto;
+}}
 .animate {
     height: 100vh;
     width: 100vw;
@@ -78,4 +88,16 @@
   }
   .messages.active {
     display: none;
+  }
+  .messages {
+    padding: 10px;
+    height: fit-content;
+    width: 50vw;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d5d7ec;
+    color: #14163e;
   }

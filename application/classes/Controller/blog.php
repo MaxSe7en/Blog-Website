@@ -5,7 +5,6 @@ class Controller_Blog extends Controller {
 	
 	public function action_index()
 	{
-		// $posts = DB::select()->from('postses')->limit(1)->execute();
 		$posts = DB::select()->from('postses')->execute();
 		$view = View::factory('blog/index')
 		->set('posts', $posts)
