@@ -5,17 +5,46 @@ class Controller_Blog extends Controller {
 	
 	public function action_index()
 	{
+		// $posts = DB::select()->from('postses')->limit(1)->execute();
 		$posts = DB::select()->from('postses')->execute();
 		$view = View::factory('blog/index')
 		->set('posts', $posts)
 		->bind('query', $this->posts);
-		View::set_global($posts);
-	
-		print_r($posts);
 		$this->response->body($view);
 	
 	}
 	public function action_addposts()
+	{
+		$view = View::factory('blog/addposts');
+	
+		$this->response->body($view);
+	
+	}
+	public function action_deletepost()
+	{
+		$id = isset($_GET['id']) ? $_GET['id'] : 0;
+
+		$posts = DB::select()->from('postses')->where('id', '=', $id)->execute();
+		$view = View::factory('blog/deletepost')
+		->set('posts', $posts)
+			->bind('query', $this->posts);
+	
+		$this->response->body($view);
+	
+	}
+	public function action_updatepost()
+	{
+		$id = isset($_GET['id']) ? $_GET['id'] : 0;
+
+		$posts = DB::select()->from('postses')->where('id', '=', $id)->execute();
+		$view = View::factory('blog/updatepost')
+		->set('posts', $posts)
+		->bind('query', $this->posts);
+	
+		$this->response->body($view);
+	
+	}
+	public function action_createposts()
 	{
 		if (isset($_REQUEST['submit'])) {
 			$title = $_REQUEST['title'];
@@ -23,70 +52,23 @@ class Controller_Blog extends Controller {
 
 			DB::insert('postses', array('title', 'body'=>$title, $body))->execute();
 		}
-		$view = View::factory('blog/addposts');
-		// ->set('posts', $posts)
-		// ->bind('query', $this->posts);
+		$view = View::factory('blog/createposts');
 	
-		print_r('posts');
 		$this->response->body($view);
 	
 	}
-	public function action_blogpost1()
+	public function action_blogpost()
 	{
-		$id = 'id';
-		$posts = DB::select()->from('postses')->where($id, '=', 1)->execute();
+		$id =  $_GET['id'];
+		print_r($id);
+		$posts = DB::select()->from('postses')->where('id', '=', $id)->execute();
 	
-		$view1 = View::factory('blog/blogpost1')
+		$view1 = View::factory('blog/blogpost')
 			->set('posts', $posts)
 			->bind('query', $this->posts);
-		// print_r($posts);
-		print_r('posts');
 
 		$this->response->body($view1);
 	}
-	public function action_blogpost2()
-	{
-		$id = 'id';
-		$posts = DB::select()->from('postses')->where($id, '=', 2)->execute();
-		$view = View::factory('blog/blogpost2')
-			->set('posts', $posts)
-			->bind('query', $this->posts);
-		print_r('posts');
-
-		$this->response->body($view);
-	}
-	public function action_blogpost3()
-	{
-		$id = 'id';
-		$posts = DB::select()->from('postses')->where($id, '=', 3)->execute();
-		$view = View::factory('blog/blogpost3')
-			->set('posts', $posts)
-			->bind('query', $this->posts);
-		print_r('posts');
-
-		$this->response->body($view);
-	}
-	public function action_blogpost4()
-	{
-		$id = 'id';
-		$posts = DB::select()->from('postses')->where($id, '=', 4)->execute();
-		$view = View::factory('blog/blogpost4')
-			->set('posts', $posts)
-			->bind('query', $this->posts);
-		print_r('posts');
-
-		$this->response->body($view);
-	}
-	public function action_blogpost5()
-	{
-		$id = 'id';
-		$posts = DB::select()->from('postses')->where($id, '=', 5)->execute();
-		$view = View::factory('blog/blogpost5')
-			->set('posts', $posts)
-			->bind('query', $this->posts);
-		print_r('posts');
-
-		$this->response->body($view);
-	}
+	
 
 }

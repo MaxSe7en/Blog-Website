@@ -23,20 +23,21 @@ require_once('/includes/head.php')
 
                 <div class="container">
                     <div class="blog-post-header">
-                        <h2 class="title mb-2"><?= ($post['id'] == 1) ? $post['title'] : '' ?></h2>
+                        <h2 class="title mb-2"><?=  $post['title'] ?></h2>
                         <div class="meta mb-3"><span class="date">Published 3 months ago</span><span class="time">5 min read</span><span class="comment"><a href="#">4 comments</a></span></div>
                     </div>
 
                     <div class="blog-post-body">
-                        <p><?= ($post['id'] == 1) ? $post['body'] : '' ?> </p>
+                        <p><?=  $post['body'] ?> </p>
                     </div>
                 </div>
             <?php } ?>
         </article>
 
+        
+    </div>
         <?php
         require_once('/includes/footer.php')
         ?>
-    </div>
 
 </body>

@@ -13,18 +13,24 @@
 
 <body>
     <div class="container mt-5">
-        <form action="/api/create_post.php" method="post" id='form'>
+    <?php foreach ($posts as $post) { ?>
+        <h1><?php  $post['body']?></h1>
+        <form  method="post" id='form'>
+            <p>
+                <h2 for="title">ID</h2><br />
+                <input type="text" name="title" id="id" value="<?php echo $post['id']?>" class="form-control bg-dark text-white my-3 text-center">
+            </p>
             <p>
                 <h2 for="title">Title</h2><br />
-                <input type="text" name="title" id="title" placeholder="Blog Title" class="form-control bg-dark text-white my-3 text-center">
+                <input type="text" name="title" id="title" value="<?php echo $post['title']?>" class="form-control text-white bg-dark  my-3 text-center">
             </p>
             <p>
                 <h2 for="title">Body</h2><br />
-                <textarea name="body" id="body" class='form-control bg-dark text-white my-3'></textarea>
+                <textarea name="body" id="body" value='sdfsfsad' class='form-control text-white bg-dark my-3'><?php echo $post['body']?></textarea>
             </p>
-            <button class='btn btn-success mt-3 btn-lg'>Create Blog</button>
+            <button class='btn btn-danger mt-3 btn-lg'>Delete Blog</button>
         </form>
-
+        <?php } ?>
         <h2 id='message'></h2>
     </div>
 
@@ -40,6 +46,7 @@
     <script>
         let title = document.getElementById('title');
         let body = document.getElementById('body');
+        let id = document.getElementById('id');
         let form = document.getElementById('form');
         let messageResponse = document.getElementById('message');
         form.addEventListener('submit', (e) => {
@@ -47,24 +54,22 @@
             submitBlog();
         })
         async function submitBlog() {
-            const titleValue = title.value.trim();
-            const bodyValue = body.value.trim();
+            // const titleValue = title.value.trim();
+            const idValue = id.value.trim();
+            // const bodyValue = body.value.trim();
 
-            if(titleValue == '')return;
-            if (bodyValue == '') return;
-            const blogs = {
-                title: titleValue,
-                body: bodyValue,
-            };
+            // const blogs = {
+            //     title: titleValue,
+            //     body: bodyValue,
+            // };
 
-            const URL = "https://localhost/kohana/api/create_post.php";
+            const URL = `https://localhost/kohana/api/delete_post.php?id=${idValue}`;
             const options = {
-                method: "POST",
-                body: JSON.stringify(blogs),
+                method: "GET",
             };
 
+            console.log(`URL==========>${URL}`);
             const response = await fetch(URL, options);
-            console.log();
 
             const blogData = await response.json();
             const useTheData = await blogData;
@@ -76,8 +81,6 @@
                 messageResponse.innerText = message;
                 console.log(message);
             }
-                
-            
         }
     </script>
 
