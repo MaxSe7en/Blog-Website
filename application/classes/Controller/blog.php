@@ -4,7 +4,7 @@ class Controller_Blog extends Controller {
 
 	
 	public function action_index()
-	{
+	{ 
 		$posts = DB::select()->from('postses')->execute();
 		$view = View::factory('blog/index')
 		->set('posts', $posts)
@@ -45,12 +45,6 @@ class Controller_Blog extends Controller {
 	}
 	public function action_createposts()
 	{
-		if (isset($_REQUEST['submit'])) {
-			$title = $_REQUEST['title'];
-			$body = $_REQUEST['body'];
-
-			DB::insert('postses', array('title', 'body'=>$title, $body))->execute();
-		}
 		$view = View::factory('blog/createposts');
 	
 		$this->response->body($view);
@@ -58,8 +52,7 @@ class Controller_Blog extends Controller {
 	}
 	public function action_blogpost()
 	{
-		$id =  $_GET['id'];
-		print_r($id);
+		$id = isset($_GET['id']) ? $_GET['id'] : 0;
 		$posts = DB::select()->from('postses')->where('id', '=', $id)->execute();
 	
 		$view1 = View::factory('blog/blogpost')

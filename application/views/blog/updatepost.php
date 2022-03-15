@@ -2,7 +2,7 @@
 require_once('config.php')
 ?>
 <?php
-require_once('/includes/head.php')
+require_once('includes/head.php')
 ?>
 <title>Update Post</title>
 </head>
@@ -34,8 +34,8 @@ require_once('/includes/head.php')
             <h1><?php $post['body'] ?></h1>
             <form method="post" id='form'>
                 <p>
-                <h2 for="title">ID</h2><br />
-                <input readonly type="text" name="title" id="id" value="<?php echo $post['id'] ?>" class="form-control bg-dark text-white my-3 text-center">
+                <br />
+                <input readonly type="hidden" name="title" id="id" value="<?php echo $post['id'] ?>" class="form-control bg-dark text-white my-3 text-center">
                 </p>
                 <p>
                 <h2 for="title">Title</h2><br />
@@ -53,7 +53,7 @@ require_once('/includes/head.php')
 
 
     <?php
-    require_once('/includes/footer.php')
+    require_once('includes/footer.php')
     ?>
 
     <script>
@@ -80,8 +80,7 @@ require_once('/includes/head.php')
             messages.classList.add("active");
         }
         async function submitBlog() {
-            if (titleValue == '') return;
-            if (bodyValue == '') return;
+         
             //LOOPING THROUGH  THE USERS TO FIND MATCH
             try {
                 isLoading();

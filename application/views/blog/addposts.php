@@ -2,7 +2,7 @@
 require_once('config.php')
 ?>
 <?php
-require_once('/includes/head.php')
+require_once('./includes/head.php')
 ?>
 <title>Create Post</title>
 </head>
@@ -46,7 +46,7 @@ require_once('/includes/head.php')
         <h2 id='message'></h2>
     </div>
     <?php
-    require_once('/includes/footer.php')
+    require_once('includes/footer.php')
     ?>
     <script>
         let title = document.getElementById('title');
@@ -106,6 +106,10 @@ require_once('/includes/head.php')
                     const text = `${message}. Redirecting now...`;
                     messages.innerText = text;
                     console.log(message);
+                    setTimeout(() => {
+                        // window.location.reload;
+                        window.location.replace('/kohana/blog');
+                    }, 1000);
                 } else {
                     ifError.classList.remove("active");
                     Loading.classList.remove("active");

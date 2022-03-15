@@ -3,7 +3,7 @@ require_once('config.php')
 ?>
 <!-- head here -->
 <?php
-require_once('/includes/head.php')
+require_once('includes/head.php')
 ?>
 <title>My blog post</title>
 </head>
@@ -11,11 +11,11 @@ require_once('/includes/head.php')
 <body>
     <!-- navbar below -->
     <?php
-    require_once('/includes/navbar.php')
+    require_once('includes/navbar.php')
     ?>
     <!-- header below -->
     <?php
-    require_once('/includes/header.php')
+    require_once('includes/header.php')
     ?>
     <div class="main-wrapper min-vh-100 pt-5">
         <article class="blog-post px-3 py-5 p-md-5">
@@ -37,7 +37,7 @@ require_once('/includes/head.php')
         
     </div>
         <?php
-        require_once('/includes/footer.php')
+        require_once('includes/footer.php')
         ?>
 
 </body>
